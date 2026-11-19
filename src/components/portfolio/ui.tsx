@@ -80,6 +80,8 @@ const iconPaths = {
 		</>
 	),
 	moon: <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />,
+	menu: <path d="M4 7h16M4 12h16M4 17h16" />,
+	close: <path d="M6 6l12 12M18 6 6 18" />,
 	chevronLeft: <path d="m15 6-6 6 6 6" />,
 	chevronRight: <path d="m9 6 6 6-6 6" />,
 	send: <path d="M21 3 10 14M21 3l-7 18-4-7-7-4Z" />,

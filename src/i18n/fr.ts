@@ -16,6 +16,8 @@ export const fr: Dictionary = {
 		reviews: "Avis",
 		contact: "Contact",
 		cta: "Parlons-en",
+		openMenu: "Ouvrir le menu",
+		closeMenu: "Fermer le menu",
 	},
 	theme: {
 		toLight: "Activer le thème clair",

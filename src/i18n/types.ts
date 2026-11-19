@@ -27,6 +27,8 @@ export type Dictionary = {
 		reviews: string;
 		contact: string;
 		cta: string;
+		openMenu: string;
+		closeMenu: string;
 	};
 	theme: { toLight: string; toDark: string };
 	language: { label: string };

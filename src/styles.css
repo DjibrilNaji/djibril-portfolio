@@ -39,6 +39,7 @@
   --glass-strong-border: rgb(255 255 255 / 0.95);
   --glass-strong-shadow: 0 1px 0 rgb(255 255 255 / 0.9) inset, 0 18px 50px -14px rgb(76 70 140 / 0.28);
   --float-bg: rgb(255 255 255 / 0.9);
+  --nav-bg: rgb(246 246 251 / 0.78);
   --button-shadow: 0 10px 24px -10px rgb(15 18 34 / 0.6);
 
   --gradient-text: linear-gradient(90deg, #8b5cf6 0%, #6d4df2 45%, #4f6bf0 100%);
@@ -84,6 +85,7 @@
   --glass-strong-border: rgb(255 255 255 / 0.12);
   --glass-strong-shadow: 0 1px 0 rgb(255 255 255 / 0.08) inset, 0 18px 50px -14px rgb(0 0 0 / 0.7);
   --float-bg: rgb(22 22 38 / 0.9);
+  --nav-bg: rgb(14 14 26 / 0.78);
   --button-shadow: 0 10px 28px -10px rgb(167 139 250 / 0.45);
 
   --gradient-text: linear-gradient(90deg, #d8b4fe 0%, #a78bfa 45%, #818cf8 100%);
@@ -150,6 +152,15 @@
   box-shadow: var(--glass-strong-shadow);
   backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+/* Sticky navbar: mostly opaque and strongly blurred so content scrolling under it never shows through */
+@utility glass-nav {
+  background: var(--nav-bg);
+  border: 1px solid var(--glass-strong-border);
+  box-shadow: var(--glass-strong-shadow);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
 }
 
 @utility text-gradient {

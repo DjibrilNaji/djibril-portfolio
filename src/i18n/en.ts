@@ -16,6 +16,8 @@ export const en: Dictionary = {
 		reviews: "Reviews",
 		contact: "Contact",
 		cta: "Let's talk",
+		openMenu: "Open menu",
+		closeMenu: "Close menu",
 	},
 	theme: {
 		toLight: "Switch to light theme",
