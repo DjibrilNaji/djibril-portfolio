@@ -28,13 +28,12 @@ export function Contact() {
 		const form = event.currentTarget;
 		const data = new FormData(form);
 		const subject = `[Portfolio] ${data.get("project")} — ${data.get("name")}`;
-
-		// No key configured: open the visitor's mail client instead.
-		if (!profile.contactFormKey) {
-			const body = `${data.get("message")}\n\n${data.get("name")} · ${data.get("email")}`;
+		const body = `${data.get("message")}\n\n${data.get("name")} · ${data.get("email")}`;
+		const openMailClient = () => {
 			window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-			return;
-		}
+		};
+
+		if (!profile.contactFormKey) return openMailClient();
 
 		setStatus("sending");
 		data.append("access_key", profile.contactFormKey);
@@ -50,7 +49,10 @@ export function Contact() {
 			form.reset();
 			setStatus("sent");
 		} catch {
+			// Monthly quota reached (250 on the free plan) or service down:
+			// hand the prefilled message to the visitor's mail client.
 			setStatus("error");
+			openMailClient();
 		}
 	}
 

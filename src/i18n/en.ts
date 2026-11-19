@@ -271,7 +271,7 @@ export const en: Dictionary = {
 		sending: "Sending…",
 		sent: "Thanks, your message has been sent. I'll get back to you soon.",
 		error:
-			"Sending failed. Please try again or email me directly at najidjibril@gmail.com.",
+			"Automatic sending is unavailable right now: your mail app opens with the message ready to send. Otherwise, email me at najidjibril@gmail.com.",
 		projectOptions: [
 			"VIE",
 			"Freelance assignment",

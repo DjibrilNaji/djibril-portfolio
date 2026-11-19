@@ -273,7 +273,7 @@ export const fr: Dictionary = {
 		sending: "Envoi en cours…",
 		sent: "Merci, votre message est bien envoyé. Je vous réponds rapidement.",
 		error:
-			"L'envoi a échoué. Réessayez ou écrivez-moi directement à najidjibril@gmail.com.",
+			"L'envoi automatique est indisponible pour le moment : votre messagerie s'ouvre avec le message prêt à envoyer. Sinon, écrivez-moi à najidjibril@gmail.com.",
 		projectOptions: [
 			"VIE",
 			"Mission freelance",
