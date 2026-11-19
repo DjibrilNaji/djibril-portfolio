@@ -86,13 +86,13 @@ export const workingTools = [
 ];
 
 // `layers` draws the architecture strip on each card, front to back.
-// `span` = grid cells taken on md / lg screens; the pattern builds a 3-column bento.
+// `featured` = full-width card; the others share a 2-column grid so neighbours have equal width and height.
 export type Project = {
 	name: string;
 	layers: string[];
 	code?: string;
 	site?: string;
-	span: "full" | "wide" | "single";
+	featured?: boolean;
 };
 
 export const projects: Project[] = [
@@ -100,30 +100,26 @@ export const projects: Project[] = [
 		name: "TrendTrack",
 		layers: ["React · TanStack", "NestJS", "PostgreSQL · ClickHouse"],
 		site: "https://www.trendtrack.io/fr",
-		span: "full",
+		featured: true,
 	},
 	{
 		name: "E-commerce AI Company",
 		layers: ["Next.js 16", "FastAPI · worker", "PostgreSQL", "Gemini → Ollama"],
-		span: "wide",
 	},
 	{
 		name: "Lootopia",
 		layers: ["Remix · Expo AR", "Spring Boot", "SQL Server"],
 		code: "https://github.com/DjibrilNaji/lootopia",
-		span: "single",
 	},
 	{
 		name: "ÀIRNEIS",
 		layers: ["Next.js", "Objection · Stripe", "PostgreSQL"],
 		code: "https://github.com/DjibrilNaji/airneis-projet-sdv-b3",
-		span: "single",
 	},
 	{
 		name: "Strategic Intelligence",
 		layers: ["Next.js · Recharts", "Hono · Kysely", "PostgreSQL"],
 		code: "https://github.com/DjibrilNaji/strategic-intelligence-dashboard",
-		span: "wide",
 	},
 ];
 
