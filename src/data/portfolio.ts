@@ -11,7 +11,7 @@ export const profile = {
 	github: "https://github.com/DjibrilNaji",
 	photo: "/djibril.jpg" as string | null,
 	// Web3Forms access key (public by design). Empty = fall back to a mailto link.
-	contactFormKey: "",
+	contactFormKey: "e00cd3f5-eb36-4e6b-962e-ec5396398192",
 };
 
 // shortcut: logos hotlinked from Google's favicon service; move them to public/ if it ever fails.
