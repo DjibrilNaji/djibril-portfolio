@@ -49,7 +49,17 @@ export function Header() {
 
 	return (
 		<header className="sticky top-3 z-50 mx-auto w-full max-w-[1200px] px-4 md:px-6">
-			<div className="glass-nav rounded-[22px]">
+			{/* Dims the page and closes the menu on outside tap */}
+			{menuOpen && (
+				<button
+					type="button"
+					tabIndex={-1}
+					aria-label={t.nav.closeMenu}
+					onClick={close}
+					className="fixed inset-0 cursor-default bg-black/30 lg:hidden"
+				/>
+			)}
+			<div className="glass-nav relative rounded-[22px]">
 				<div className="flex items-center justify-between gap-3 py-2.5 pr-2.5 pl-3 lg:gap-6">
 					<a href="#top" className="flex min-h-11 shrink-0 items-center gap-3">
 						<span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-ink text-sm font-extrabold text-on-ink">
@@ -106,7 +116,7 @@ export function Header() {
 					<nav
 						id="mobile-menu"
 						aria-label={t.nav.label}
-						className="border-t border-line px-3 pt-2 pb-3 lg:hidden"
+						className="absolute inset-x-0 top-full mt-2 rounded-[22px] border border-line bg-ground p-2 shadow-2xl lg:hidden"
 					>
 						<ul className="m-0 flex list-none flex-col gap-1 p-0">
 							{sections.map((section) => (
