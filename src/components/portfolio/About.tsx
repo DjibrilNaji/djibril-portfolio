@@ -1,6 +1,6 @@
 import { highlights, profile } from "#/data/portfolio";
 import { useI18n } from "#/i18n";
-import { Eyebrow, Icon, Panel, pillGlass } from "./ui";
+import { Eyebrow, external, Icon, Panel, pillGlass } from "./ui";
 
 export function About() {
 	const { t } = useI18n();
@@ -37,7 +37,7 @@ export function About() {
 					<p className="m-0 text-base leading-relaxed text-body">
 						{t.about.text}
 					</p>
-					<a href={profile.linkedin} className={pillGlass}>
+					<a href={profile.linkedin} {...external} className={pillGlass}>
 						{t.about.cta} <Icon name="arrowUpRight" size={16} />
 					</a>
 				</div>

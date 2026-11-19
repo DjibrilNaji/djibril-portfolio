@@ -78,42 +78,35 @@ export const en: Dictionary = {
 	projects: {
 		eyebrow: "Featured projects",
 		title: "Selected work",
-		cta: "All projects",
+		cta: "All my GitHub repositories",
+		code: "View code",
+		site: "Visit site",
+		privateNote: "Personal project · private code",
 		items: [
 			{
 				category: "SaaS · Freelance",
 				description:
-					"E-commerce intelligence SaaS I work on every day, front end and back end: filter system, ad detail views, NestJS endpoints.",
+					"E-commerce intelligence SaaS I work on every day, front end and back end: the filter system shared by all 5 modules, detail views for Meta, Google and TikTok ads, NestJS endpoints on PostgreSQL and ClickHouse.",
+			},
+			{
+				category: "Generative AI · Agents",
+				description:
+					"A team of AI agents that finds e-commerce products, scores them out of 100, studies competitors and builds the brand, driven from a real-time dashboard. PostgreSQL job queue, with automatic fallback from Gemini to a local model when the API stops answering.",
 			},
 			{
 				category: "Web · Mobile AR · API",
 				description:
-					"Treasure-hunt platform: web client, augmented-reality mobile app and API.",
+					"Treasure-hunt platform: web client, augmented-reality mobile app and Spring Boot API.",
 			},
 			{
-				category: "SaaS",
+				category: "E-commerce · Team project",
 				description:
-					"Multilingual task-management SaaS with authentication and polished animations.",
+					"E-commerce site and back office for a furniture brand, with Stripe payments. Bachelor team project, 5 developers.",
 			},
 			{
 				category: "Data · Dashboard",
 				description:
-					"Combines three public APIs to score countries, with charts and PDF export.",
-			},
-			{
-				category: "Cloud",
-				description:
-					"Spins up disposable Azure virtual machines based on the user's role and provides RDP / SSH access.",
-			},
-			{
-				category: "NoSQL",
-				description:
-					"Travel app built on three complementary NoSQL databases: document, graph and cache.",
-			},
-			{
-				category: "E-commerce",
-				description:
-					"E-commerce site and back office for a furniture brand — Bachelor (B3) team project.",
+					"Combines three public APIs to give every country a strategic score, with charts and PDF export. End-to-end typed Hono API, all running with Docker.",
 			},
 		],
 	},

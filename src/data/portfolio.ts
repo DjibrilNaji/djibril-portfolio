@@ -58,41 +58,51 @@ export const tools = [
 	{ name: "Claude Code", slug: "claude" },
 ];
 
-export const projects = [
+// `span` = grid cells taken on md / lg screens; the pattern below builds a 3-column bento.
+export type Project = {
+	name: string;
+	stack: string[];
+	code?: string;
+	site?: string;
+	span: "full" | "wide" | "single";
+};
+
+export const projects: Project[] = [
 	{
 		name: "TrendTrack",
-		stack: "React · TanStack · NestJS · PostgreSQL · ClickHouse",
-		url: "https://www.trendtrack.io/fr",
+		stack: [
+			"React",
+			"TanStack",
+			"NestJS",
+			"PostgreSQL",
+			"ClickHouse",
+			"PostHog",
+		],
+		site: "https://www.trendtrack.io/fr",
+		span: "full",
+	},
+	{
+		name: "E-commerce AI Company",
+		stack: ["Next.js 16", "FastAPI", "PostgreSQL", "Gemini", "Ollama"],
+		span: "wide",
 	},
 	{
 		name: "Lootopia",
-		stack: "Remix · Expo + ViroReact · Spring Boot · SQL Server",
-		url: "https://github.com/DjibrilNaji/lootopia",
-	},
-	{
-		name: "Taskly",
-		stack: "Next.js · Prisma · Better Auth · GSAP",
-		url: "https://github.com/DjibrilNaji/taskly",
-	},
-	{
-		name: "Strategic Intelligence",
-		stack: "Hono · Kysely · Postgres · Next.js · Docker",
-		url: "https://github.com/DjibrilNaji/strategic-intelligence-dashboard",
-	},
-	{
-		name: "Next Azure VM",
-		stack: "Next.js · Azure ARM SDK · JWT",
-		url: "https://github.com/DjibrilNaji/next-azure-vm",
-	},
-	{
-		name: "Travel Hub",
-		stack: "Next.js · MongoDB · Neo4j · Redis",
-		url: "https://github.com/DjibrilNaji/travel-hub",
+		stack: ["Remix", "Expo", "ViroReact", "Spring Boot", "SQL Server"],
+		code: "https://github.com/DjibrilNaji/lootopia",
+		span: "single",
 	},
 	{
 		name: "ÀIRNEIS",
-		stack: "Next.js · Stripe · AWS · i18n",
-		url: "https://github.com/DjibrilNaji/airneis-projet-sdv-b3",
+		stack: ["Next.js", "Stripe", "AWS", "i18n"],
+		code: "https://github.com/DjibrilNaji/airneis-projet-sdv-b3",
+		span: "single",
+	},
+	{
+		name: "Strategic Intelligence",
+		stack: ["Hono", "Kysely", "PostgreSQL", "Next.js", "Docker"],
+		code: "https://github.com/DjibrilNaji/strategic-intelligence-dashboard",
+		span: "wide",
 	},
 ];
 

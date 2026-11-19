@@ -81,42 +81,35 @@ export const fr: Dictionary = {
 	projects: {
 		eyebrow: "Projets à la une",
 		title: "Travaux sélectionnés",
-		cta: "Tous les projets",
+		cta: "Tous mes dépôts GitHub",
+		code: "Voir le code",
+		site: "Voir le site",
+		privateNote: "Projet personnel · code privé",
 		items: [
 			{
 				category: "SaaS · Freelance",
 				description:
-					"SaaS d'intelligence e-commerce sur lequel je travaille au quotidien, en front comme en back : système de filtres, vues détail des publicités, endpoints NestJS.",
+					"SaaS d'intelligence e-commerce sur lequel je travaille au quotidien, en front comme en back : système de filtres partagé par les 5 modules, vues détail des publicités Meta, Google et TikTok, endpoints NestJS sur PostgreSQL et ClickHouse.",
+			},
+			{
+				category: "IA générative · Agents",
+				description:
+					"Une équipe d'agents IA qui cherche des produits e-commerce, les note sur 100, analyse la concurrence et crée la marque, pilotée depuis un tableau de bord en temps réel. File de tâches PostgreSQL, et bascule automatique de Gemini vers un modèle local si l'API ne répond plus.",
 			},
 			{
 				category: "Web · Mobile AR · API",
 				description:
-					"Plateforme de chasse au trésor : client web, application mobile en réalité augmentée et API.",
+					"Plateforme de chasse au trésor : client web, application mobile en réalité augmentée et API Spring Boot.",
 			},
 			{
-				category: "SaaS",
+				category: "E-commerce · Projet d'équipe",
 				description:
-					"SaaS de gestion de tâches, multilingue, avec authentification et animations soignées.",
+					"Site e-commerce et back-office pour une marque de mobilier, avec paiement Stripe. Projet de Bachelor en équipe de 5.",
 			},
 			{
 				category: "Data · Dashboard",
 				description:
-					"Croise trois APIs publiques pour noter des pays, avec graphiques et export PDF.",
-			},
-			{
-				category: "Cloud",
-				description:
-					"Crée des machines virtuelles Azure éphémères selon le rôle de l'utilisateur et fournit l'accès RDP / SSH.",
-			},
-			{
-				category: "NoSQL",
-				description:
-					"Application de voyage reposant sur trois bases NoSQL complémentaires : document, graphe et cache.",
-			},
-			{
-				category: "E-commerce",
-				description:
-					"Site e-commerce et back-office pour une marque de mobilier — projet d'équipe Bachelor B3.",
+					"Croise trois APIs publiques pour donner un score stratégique à chaque pays, avec graphiques et export PDF. API Hono typée de bout en bout, le tout lancé avec Docker.",
 			},
 		],
 	},

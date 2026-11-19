@@ -1,6 +1,6 @@
 import { profile, trustedBy } from "#/data/portfolio";
 import { useI18n } from "#/i18n";
-import { Eyebrow, Icon, pillDark, pillGlass } from "./ui";
+import { Eyebrow, external, Icon, pillDark, pillGlass } from "./ui";
 
 export function Hero() {
 	const { t } = useI18n();
@@ -68,6 +68,7 @@ export function Hero() {
 										{company.url ? (
 											<a
 												href={company.url}
+												{...external}
 												className="flex items-center gap-2.5 transition hover:text-ink"
 											>
 												{content}

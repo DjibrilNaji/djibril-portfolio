@@ -1,6 +1,6 @@
 import { educationSteps } from "#/data/portfolio";
 import { useI18n } from "#/i18n";
-import { Icon, Panel, SectionHeading } from "./ui";
+import { external, Icon, Panel, SectionHeading } from "./ui";
 
 export function Experience() {
 	const { t } = useI18n();
@@ -45,6 +45,7 @@ export function Experience() {
 											{item.url ? (
 												<a
 													href={item.url}
+													{...external}
 													className="inline-flex items-center gap-1.5 hover:text-violet"
 												>
 													{item.company}

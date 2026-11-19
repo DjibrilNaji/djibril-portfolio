@@ -1,7 +1,7 @@
 import { type FormEvent, useState } from "react";
 import { profile } from "#/data/portfolio";
 import { useI18n } from "#/i18n";
-import { Eyebrow, Icon, type IconName, Panel, pillDark } from "./ui";
+import { Eyebrow, external, Icon, type IconName, Panel, pillDark } from "./ui";
 
 const channels: { icon: IconName; label: string; href?: string }[] = [
 	{ icon: "mail", label: profile.email, href: `mailto:${profile.email}` },
@@ -87,6 +87,7 @@ export function Contact() {
 									{channel.href ? (
 										<a
 											href={channel.href}
+											{...(channel.href.startsWith("http") ? external : {})}
 											className="flex min-h-11 items-center gap-3 hover:text-violet"
 										>
 											{content}

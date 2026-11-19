@@ -60,6 +60,9 @@ export type Dictionary = {
 		eyebrow: string;
 		title: string;
 		cta: string;
+		code: string;
+		site: string;
+		privateNote: string;
 		items: { category: string; description: string }[];
 	};
 	experience: {

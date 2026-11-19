@@ -135,6 +135,12 @@ export const tones = {
 	mint: "bg-mint text-mint-ink",
 } as const;
 
+// Spread on links leaving the site so the portfolio stays open in its own tab.
+export const external = {
+	target: "_blank",
+	rel: "noopener noreferrer",
+} as const;
+
 export const container = "mx-auto w-full max-w-[1200px] px-4 md:px-6";
 
 export function Panel({
@@ -190,14 +196,3 @@ export const pillButton =
 	"inline-flex min-h-11 items-center gap-2.5 rounded-full px-5 text-sm font-semibold transition";
 export const pillDark = `${pillButton} bg-ink text-on-ink shadow-[var(--button-shadow)] hover:bg-ink-hover`;
 export const pillGlass = `${pillButton} glass-strong text-ink hover:bg-hover-surface`;
-
-export function RoundArrow() {
-	return (
-		<span
-			aria-hidden="true"
-			className="glass-strong inline-flex size-9 shrink-0 items-center justify-center rounded-full text-ink transition group-hover:bg-ink group-hover:text-on-ink"
-		>
-			<Icon name="arrowUpRight" size={16} />
-		</span>
-	);
-}
