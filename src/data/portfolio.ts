@@ -10,6 +10,8 @@ export const profile = {
 	linkedin: "https://www.linkedin.com/in/djibrilnaji",
 	github: "https://github.com/DjibrilNaji",
 	photo: "/djibril.jpg" as string | null,
+	// Web3Forms access key (public by design). Empty = fall back to a mailto link.
+	contactFormKey: "",
 };
 
 // shortcut: logos hotlinked from Google's favicon service; move them to public/ if it ever fails.

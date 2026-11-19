@@ -88,6 +88,9 @@ export type Dictionary = {
 		project: string;
 		message: string;
 		submit: string;
+		sending: string;
+		sent: string;
+		error: string;
 		projectOptions: string[];
 	};
 	footer: { tagline: string };

@@ -268,6 +268,10 @@ export const en: Dictionary = {
 		project: "Your project",
 		message: "Your message",
 		submit: "Send message",
+		sending: "Sending…",
+		sent: "Thanks, your message has been sent. I'll get back to you soon.",
+		error:
+			"Sending failed. Please try again or email me directly at najidjibril@gmail.com.",
 		projectOptions: [
 			"VIE",
 			"Freelance assignment",
