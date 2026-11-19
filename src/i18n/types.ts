@@ -1,0 +1,94 @@
+export const languages = ["fr", "en"] as const;
+export type Lang = (typeof languages)[number];
+
+export type ExperienceText = {
+	company: string;
+	role?: string;
+	period: string;
+	meta: string[];
+	description?: string;
+	missions?: string[];
+	stack?: string[];
+	isBreak?: boolean;
+	url?: string;
+};
+
+// Every visible string of the site. Lists line up by index with the
+// language-neutral data in src/data/portfolio.ts (icons, links, stacks…).
+export type Dictionary = {
+	meta: { title: string; description: string };
+	nav: {
+		label: string;
+		top: string;
+		about: string;
+		services: string;
+		projects: string;
+		experience: string;
+		reviews: string;
+		contact: string;
+		cta: string;
+	};
+	theme: { toLight: string; toDark: string };
+	language: { label: string };
+	hero: {
+		eyebrow: string;
+		intro: string;
+		availability: string;
+		ctaProjects: string;
+		ctaContact: string;
+		trustedBy: string;
+		portraitAlt: string;
+		yearsLabel: [string, string];
+		promoTitle: string;
+	};
+	about: {
+		eyebrow: string;
+		title: [string, string];
+		text: string;
+		cta: string;
+		highlights: string[];
+	};
+	services: {
+		eyebrow: string;
+		title: string;
+		items: { title: string; description: string }[];
+	};
+	tools: { eyebrow: string; title: string };
+	projects: {
+		eyebrow: string;
+		title: string;
+		cta: string;
+		items: { category: string; description: string }[];
+	};
+	experience: {
+		eyebrow: string;
+		title: string;
+		techLabel: string;
+		items: ExperienceText[];
+	};
+	education: {
+		eyebrow: string;
+		title: string;
+		topOfClass: string;
+		items: { title: string; detail: string }[];
+	};
+	testimonials: {
+		eyebrow: string;
+		title: string;
+		previous: string;
+		next: string;
+		note?: string;
+		items: { quote: string; context: string }[];
+	};
+	contact: {
+		eyebrow: string;
+		title: [string, string];
+		name: string;
+		email: string;
+		project: string;
+		message: string;
+		submit: string;
+		projectOptions: string[];
+	};
+	footer: { tagline: string };
+};
