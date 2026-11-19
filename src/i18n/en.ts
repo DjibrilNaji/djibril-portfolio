@@ -25,7 +25,7 @@ export const en: Dictionary = {
 	},
 	language: { label: "Language" },
 	hero: {
-		eyebrow: "Hello, I'm",
+		eyebrow: "Hello, my name is",
 		intro:
 			"Full stack developer with nearly 4 years of experience across a startup, a major French bank and a fully remote freelance role. I ship features end to end, from React to APIs (NestJS, Spring Boot) and databases.",
 		availability:
