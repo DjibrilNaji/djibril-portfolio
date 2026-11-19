@@ -94,7 +94,9 @@ export function portfolioHead(lang: Lang) {
 			{
 				rel: "preload",
 				as: "image",
-				href: profile.photo,
+				href: "/djibril-720.webp",
+				imageSrcSet: profile.photoSrcSet,
+				imageSizes: profile.photoSizes,
 				fetchPriority: "high" as const,
 			},
 		],

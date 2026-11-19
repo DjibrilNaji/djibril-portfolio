@@ -103,7 +103,9 @@ function Portrait() {
 			<div className="glass-strong relative aspect-[4/4.4] overflow-hidden rounded-[48px] p-2">
 				<div className="h-full w-full overflow-hidden rounded-[40px] bg-gradient-to-br from-[#e9e4ff] via-[#f4f2fb] to-[#dfe6ff] dark:from-[#241c4a] dark:via-[#15142a] dark:to-[#1a2250]">
 					<img
-						src={profile.photo}
+						src="/djibril-720.webp"
+						srcSet={profile.photoSrcSet}
+						sizes={profile.photoSizes}
 						alt={t.hero.portraitAlt}
 						width={720}
 						height={720}

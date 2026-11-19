@@ -11,7 +11,10 @@ export const profile = {
 	email: "najidjibril@gmail.com",
 	linkedin: "https://www.linkedin.com/in/djibrilnaji",
 	github: "https://github.com/DjibrilNaji",
+	// JPEG kept for social cards; the page itself loads the WebP variants.
 	photo: "/djibril.jpg",
+	photoSrcSet: "/djibril-480.webp 480w, /djibril-720.webp 720w",
+	photoSizes: "(min-width: 1024px) 380px, (min-width: 640px) 420px, 90vw",
 	// Web3Forms access key (public by design). Empty = fall back to a mailto link.
 	contactFormKey: "e00cd3f5-eb36-4e6b-962e-ec5396398192",
 };
