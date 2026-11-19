@@ -6,11 +6,12 @@ export const fr: Dictionary = {
 		description:
 			"Portfolio de Djibril Naji, développeur full stack (React, TypeScript, Node.js, Java) basé en région parisienne, éligible au VIE.",
 	},
+	skipLink: "Aller au contenu",
 	nav: {
 		label: "Navigation principale",
 		top: "Accueil",
 		about: "À propos",
-		services: "Services",
+		expertise: "Expertise",
 		projects: "Projets",
 		experience: "Expérience",
 		reviews: "Avis",
@@ -42,74 +43,105 @@ export const fr: Dictionary = {
 		title: ["À l'aise à distance,", "livré de bout en bout"],
 		text: "Pendant deux ans, j'ai travaillé tous les jours en anglais avec des équipes d'ingénieurs en Inde. Depuis bientôt un an, je travaille en freelance depuis l'Asie, en autonomie complète. Je parle français et anglais. À côté, je voyage, je fais du sport et je passe pas mal de temps sur l'IA générative (Claude, Claude Code) et sur mes projets perso. Je cherche maintenant un poste de développeur full stack en VIE.",
 		cta: "Voir mon LinkedIn",
-		highlights: [
-			"Ans d'expérience",
-			"Ans à l'international",
-			"Recommandations",
+		facts: [
+			{ label: "Basé à", value: "Paris, France" },
+			{ label: "Disponible", value: "VIE · mobilité internationale" },
+			{ label: "Langues", value: "Français natif · anglais professionnel" },
+			{ label: "Mode de travail", value: "100 % remote ou sur site" },
 		],
 	},
-	services: {
-		eyebrow: "Ce que je fais",
-		title: "Mes services",
+	expertise: {
+		eyebrow: "Expertise",
+		title: "Ce que je sais construire",
+		intro:
+			"Je travaille sur toute la chaîne d'une fonctionnalité : l'interface, l'API, la base de données, puis les tests et la mise en production.",
+		provenAt: "Mis en pratique",
+		toolsLabel: "Au quotidien",
 		items: [
 			{
-				title: "Développement front-end",
+				title: "Interfaces web",
 				description:
-					"Interfaces React, Next.js et TanStack intégrées depuis Figma dans un design system, responsive du desktop au mobile.",
+					"Interfaces denses en données qui restent rapides et lisibles : filtres partagés, vues détail, design system, du desktop au mobile.",
+				proof: "TrendTrack · Société Générale · JProject",
 			},
 			{
 				title: "Back-end & APIs",
 				description:
-					"APIs REST avec NestJS, Spring Boot ou Django, sur PostgreSQL, ClickHouse, Redis ou MongoDB.",
+					"APIs REST structurées et sécurisées, de la modélisation des données à l'authentification.",
+				proof: "TrendTrack · Société Générale · Lootopia",
 			},
 			{
-				title: "Livraison produit",
+				title: "Données",
 				description:
-					"Fonctionnalités livrées derrière des feature flags, adoption suivie avec PostHog, interfaces traduites en plusieurs langues.",
+					"Bases relationnelles et analytiques, requêtes sur de gros volumes, cache et files de tâches.",
+				proof: "TrendTrack · E-commerce AI Company",
 			},
 			{
-				title: "Qualité & CI/CD",
+				title: "Qualité & livraison",
 				description:
-					"Jest, Vitest, Playwright, Cypress, JUnit, quality gates SonarQube et pipelines GitHub Actions.",
+					"Tests automatisés, quality gates et CI/CD pour livrer souvent sans casser la production.",
+				proof: "Société Générale · TrendTrack",
 			},
 		],
 	},
-	tools: {
-		eyebrow: "Outils & compétences",
-		title: "Technologies que j'utilise",
-	},
 	projects: {
-		eyebrow: "Projets à la une",
-		title: "Travaux sélectionnés",
+		eyebrow: "Projets",
+		title: "Ce que j'ai construit",
 		cta: "Tous mes dépôts GitHub",
 		code: "Voir le code",
 		site: "Voir le site",
 		privateNote: "Projet personnel · code privé",
+		architecture: "Architecture",
 		items: [
 			{
 				category: "SaaS · Freelance",
 				description:
-					"SaaS d'intelligence e-commerce sur lequel je travaille au quotidien, en front comme en back : système de filtres partagé par les 5 modules, vues détail des publicités Meta, Google et TikTok, endpoints NestJS sur PostgreSQL et ClickHouse.",
+					"SaaS d'intelligence e-commerce : boutiques, publicités Meta, Google et TikTok, produits et emails de marques. Je travaille en front comme en back sur la V3.",
+				highlights: [
+					"Système de filtres partagé par les 5 modules de l'app, du desktop au mobile",
+					"Vues détail des publicités Meta, Google, TikTok, Instagram et des emails",
+					"Fonctionnalités livrées derrière des feature flags, adoption suivie avec PostHog",
+				],
 			},
 			{
 				category: "IA générative · Agents",
 				description:
-					"Une équipe d'agents IA qui cherche des produits e-commerce, les note sur 100, analyse la concurrence et crée la marque, pilotée depuis un tableau de bord en temps réel. File de tâches PostgreSQL, et bascule automatique de Gemini vers un modèle local si l'API ne répond plus.",
+					"Une équipe d'agents IA qui cherche des produits e-commerce, les note sur 100, analyse la concurrence et crée la marque, pilotée depuis un tableau de bord.",
+				highlights: [
+					"Routeur IA : Gemini d'abord, bascule automatique sur un modèle local si l'API ne répond plus",
+					"File de tâches PostgreSQL qui reprend après un redémarrage",
+					"Tableau de bord en temps réel via LISTEN/NOTIFY et Server-Sent Events",
+				],
 			},
 			{
 				category: "Web · Mobile AR · API",
 				description:
-					"Plateforme de chasse au trésor : client web, application mobile en réalité augmentée et API Spring Boot.",
+					"Plateforme de chasse au trésor : un site, une app mobile et une API commune. Projet d'école en binôme.",
+				highlights: [
+					"API Spring Boot sécurisée : JWT, sessions en base, double authentification par email",
+					"Création de chasses géolocalisées sur une carte",
+					"App mobile React Native avec un scanner en réalité augmentée (prototype)",
+				],
 			},
 			{
 				category: "E-commerce · Projet d'équipe",
 				description:
-					"Site e-commerce et back-office pour une marque de mobilier, avec paiement Stripe. Projet de Bachelor en équipe de 5.",
+					"Site e-commerce et back-office pour une marque de mobilier. Projet de Bachelor en équipe de 5.",
+				highlights: [
+					"Parcours d'achat complet avec paiement Stripe",
+					"Back-office avec tableaux de bord (Chart.js)",
+					"Site traduit, images sur AWS S3, emails via SendGrid",
+				],
 			},
 			{
 				category: "Data · Dashboard",
 				description:
-					"Croise trois APIs publiques pour donner un score stratégique à chaque pays, avec graphiques et export PDF. API Hono typée de bout en bout, le tout lancé avec Docker.",
+					"Croise trois APIs publiques pour donner un score stratégique à chaque pays, avec graphiques et export PDF.",
+				highlights: [
+					"API Hono typée de bout en bout avec Kysely et Zod",
+					"Agrégation et normalisation de sources hétérogènes",
+					"Lancement de toute l'application en une commande avec Docker",
+				],
 			},
 		],
 	},
@@ -269,6 +301,8 @@ export const fr: Dictionary = {
 		sent: "Merci, votre message est bien envoyé. Je vous réponds rapidement.",
 		error:
 			"L'envoi automatique est indisponible pour le moment : votre messagerie s'ouvre avec le message prêt à envoyer. Sinon, écrivez-moi à najidjibril@gmail.com.",
+		copy: "Copier l'email",
+		copied: "Email copié",
 		projectOptions: [
 			"VIE",
 			"Mission freelance",

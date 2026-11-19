@@ -1,6 +1,11 @@
 import { type FormEvent, useState } from "react";
 import { profile } from "#/data/portfolio";
 import { useI18n } from "#/i18n";
+import {
+	type ContactMessage,
+	mailtoUrl,
+	sendContactMessage,
+} from "#/lib/contact";
 import { Eyebrow, external, Icon, type IconName, Panel, pillDark } from "./ui";
 
 const channels: { icon: IconName; label: string; href?: string }[] = [
@@ -27,28 +32,25 @@ export function Contact() {
 		event.preventDefault();
 		const form = event.currentTarget;
 		const data = new FormData(form);
-		const subject = `[Portfolio] ${data.get("project")} — ${data.get("name")}`;
-		const body = `${data.get("message")}\n\n${data.get("name")} · ${data.get("email")}`;
-		const openMailClient = () => {
-			window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-		};
+		// Honeypot ticked: a bot filled the hidden field, pretend it worked.
+		if (data.get("botcheck")) return setStatus("sent");
 
+		const message: ContactMessage = {
+			name: String(data.get("name") ?? ""),
+			email: String(data.get("email") ?? ""),
+			project: String(data.get("project") ?? ""),
+			message: String(data.get("message") ?? ""),
+		};
+		const openMailClient = () => {
+			window.location.href = mailtoUrl(profile.email, message);
+		};
 		if (!profile.contactFormKey) return openMailClient();
 
 		setStatus("sending");
-		data.append("access_key", profile.contactFormKey);
-		data.append("subject", subject);
-		data.append("from_name", "Portfolio");
-		try {
-			const res = await fetch("https://api.web3forms.com/submit", {
-				method: "POST",
-				body: data,
-			});
-			const json = await res.json();
-			if (!res.ok || !json.success) throw new Error(json.message);
+		if (await sendContactMessage(profile.contactFormKey, message)) {
 			form.reset();
 			setStatus("sent");
-		} catch {
+		} else {
 			// Monthly quota reached (250 on the free plan) or service down:
 			// hand the prefilled message to the visitor's mail client.
 			setStatus("error");
@@ -83,7 +85,7 @@ export function Contact() {
 								</>
 							);
 							return (
-								<li key={channel.label}>
+								<li key={channel.label} className="flex items-center gap-2">
 									{channel.href ? (
 										<a
 											href={channel.href}
@@ -97,6 +99,7 @@ export function Contact() {
 											{content}
 										</span>
 									)}
+									{channel.icon === "mail" && <CopyEmail />}
 								</li>
 							);
 						})}
@@ -175,6 +178,34 @@ export function Contact() {
 				</form>
 			</div>
 		</Panel>
+	);
+}
+
+function CopyEmail() {
+	const { t } = useI18n();
+	const [copied, setCopied] = useState(false);
+
+	async function copy() {
+		try {
+			await navigator.clipboard.writeText(profile.email);
+			setCopied(true);
+			setTimeout(() => setCopied(false), 2000);
+		} catch {
+			// Clipboard blocked (permissions, insecure context): the mailto link is still there.
+		}
+	}
+
+	return (
+		<button
+			type="button"
+			onClick={copy}
+			className="inline-flex min-h-9 items-center gap-1.5 rounded-full px-3 text-xs font-semibold text-violet ring-1 ring-line transition hover:bg-violet-soft"
+		>
+			<Icon name={copied ? "check" : "copy"} size={14} />
+			<span aria-live="polite">
+				{copied ? t.contact.copied : t.contact.copy}
+			</span>
+		</button>
 	);
 }
 

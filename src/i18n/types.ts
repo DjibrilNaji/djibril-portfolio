@@ -17,11 +17,12 @@ export type ExperienceText = {
 // language-neutral data in src/data/portfolio.ts (icons, links, stacks…).
 export type Dictionary = {
 	meta: { title: string; description: string };
+	skipLink: string;
 	nav: {
 		label: string;
 		top: string;
 		about: string;
-		services: string;
+		expertise: string;
 		projects: string;
 		experience: string;
 		reviews: string;
@@ -48,14 +49,16 @@ export type Dictionary = {
 		title: [string, string];
 		text: string;
 		cta: string;
-		highlights: string[];
+		facts: { label: string; value: string }[];
 	};
-	services: {
+	expertise: {
 		eyebrow: string;
 		title: string;
-		items: { title: string; description: string }[];
+		intro: string;
+		provenAt: string;
+		toolsLabel: string;
+		items: { title: string; description: string; proof: string }[];
 	};
-	tools: { eyebrow: string; title: string };
 	projects: {
 		eyebrow: string;
 		title: string;
@@ -63,7 +66,8 @@ export type Dictionary = {
 		code: string;
 		site: string;
 		privateNote: string;
-		items: { category: string; description: string }[];
+		architecture: string;
+		items: { category: string; description: string; highlights: string[] }[];
 	};
 	experience: {
 		eyebrow: string;
@@ -96,6 +100,8 @@ export type Dictionary = {
 		sending: string;
 		sent: string;
 		error: string;
+		copy: string;
+		copied: string;
 		projectOptions: string[];
 	};
 	footer: { tagline: string };

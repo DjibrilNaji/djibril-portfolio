@@ -6,11 +6,12 @@ export const en: Dictionary = {
 		description:
 			"Portfolio of Djibril Naji, full stack developer (React, TypeScript, Node.js, Java) based near Paris, eligible for the VIE program.",
 	},
+	skipLink: "Skip to content",
 	nav: {
 		label: "Main navigation",
 		top: "Home",
 		about: "About",
-		services: "Services",
+		expertise: "Expertise",
 		projects: "Work",
 		experience: "Experience",
 		reviews: "Reviews",
@@ -42,71 +43,105 @@ export const en: Dictionary = {
 		title: ["Remote-ready,", "shipping end to end"],
 		text: "For two years I worked in English every day with engineering teams in India. For almost a year now, I've been freelancing from Asia, fully on my own. I speak French and English. Outside work I travel, play sports and spend a lot of time with generative AI (Claude, Claude Code) and my own side projects. I'm now looking for a full stack developer VIE position.",
 		cta: "View my LinkedIn",
-		highlights: [
-			"Years of experience",
-			"Years in global teams",
-			"Recommendations",
+		facts: [
+			{ label: "Based in", value: "Paris, France" },
+			{ label: "Available for", value: "VIE · relocation worldwide" },
+			{ label: "Languages", value: "French (native) · professional English" },
+			{ label: "Work setup", value: "Fully remote or on-site" },
 		],
 	},
-	services: {
-		eyebrow: "What I do",
-		title: "Services I offer",
+	expertise: {
+		eyebrow: "Expertise",
+		title: "What I build",
+		intro:
+			"I work on the whole path of a feature: the interface, the API, the database, then tests and release.",
+		provenAt: "Used at",
+		toolsLabel: "Day to day",
 		items: [
 			{
-				title: "Front-end development",
+				title: "Web interfaces",
 				description:
-					"React, Next.js and TanStack interfaces built from Figma designs, inside a design system, responsive from desktop to mobile.",
+					"Data-heavy interfaces that stay fast and readable: shared filters, detail views, design system, from desktop to mobile.",
+				proof: "TrendTrack · Société Générale · JProject",
 			},
 			{
-				title: "Back-end & APIs",
+				title: "Back end & APIs",
 				description:
-					"REST APIs with NestJS, Spring Boot or Django, on PostgreSQL, ClickHouse, Redis or MongoDB.",
+					"Well-structured, secure REST APIs, from data modelling to authentication.",
+				proof: "TrendTrack · Société Générale · Lootopia",
 			},
 			{
-				title: "Product delivery",
+				title: "Data",
 				description:
-					"Features shipped behind feature flags, adoption tracked with PostHog, UIs localized into several languages.",
+					"Relational and analytical databases, queries over large volumes, caching and job queues.",
+				proof: "TrendTrack · E-commerce AI Company",
 			},
 			{
-				title: "Quality & CI/CD",
+				title: "Quality & delivery",
 				description:
-					"Jest, Vitest, Playwright, Cypress, JUnit, SonarQube quality gates and GitHub Actions pipelines.",
+					"Automated tests, quality gates and CI/CD to ship often without breaking production.",
+				proof: "Société Générale · TrendTrack",
 			},
 		],
 	},
-	tools: { eyebrow: "Tools & skills", title: "Technologies I use" },
 	projects: {
-		eyebrow: "Featured projects",
-		title: "Selected work",
+		eyebrow: "Projects",
+		title: "What I've built",
 		cta: "All my GitHub repositories",
 		code: "View code",
 		site: "Visit site",
 		privateNote: "Personal project · private code",
+		architecture: "Architecture",
 		items: [
 			{
 				category: "SaaS · Freelance",
 				description:
-					"E-commerce intelligence SaaS I work on every day, front end and back end: the filter system shared by all 5 modules, detail views for Meta, Google and TikTok ads, NestJS endpoints on PostgreSQL and ClickHouse.",
+					"E-commerce intelligence SaaS: online stores, Meta, Google and TikTok ads, products and brand emails. I work on V3 across front end and back end.",
+				highlights: [
+					"Filter system shared by all 5 modules of the app, from desktop to mobile",
+					"Detail views for Meta, Google, TikTok and Instagram ads and emails",
+					"Features shipped behind feature flags, adoption tracked with PostHog",
+				],
 			},
 			{
 				category: "Generative AI · Agents",
 				description:
-					"A team of AI agents that finds e-commerce products, scores them out of 100, studies competitors and builds the brand, driven from a real-time dashboard. PostgreSQL job queue, with automatic fallback from Gemini to a local model when the API stops answering.",
+					"A team of AI agents that finds e-commerce products, scores them out of 100, studies competitors and builds the brand, driven from a dashboard.",
+				highlights: [
+					"AI router: Gemini first, automatic fallback to a local model when the API stops answering",
+					"PostgreSQL job queue that resumes after a restart",
+					"Real-time dashboard through LISTEN/NOTIFY and Server-Sent Events",
+				],
 			},
 			{
 				category: "Web · Mobile AR · API",
 				description:
-					"Treasure-hunt platform: web client, augmented-reality mobile app and Spring Boot API.",
+					"Treasure-hunt platform: a website, a mobile app and one shared API. School project built in a team of two.",
+				highlights: [
+					"Secure Spring Boot API: JWT, database sessions, two-factor authentication by email",
+					"Geolocated hunts created on a map",
+					"React Native mobile app with an augmented-reality scanner (prototype)",
+				],
 			},
 			{
 				category: "E-commerce · Team project",
 				description:
-					"E-commerce site and back office for a furniture brand, with Stripe payments. Bachelor team project, 5 developers.",
+					"E-commerce site and back office for a furniture brand. Bachelor team project, 5 developers.",
+				highlights: [
+					"Complete checkout flow with Stripe payments",
+					"Back office with dashboards (Chart.js)",
+					"Translated site, images on AWS S3, emails through SendGrid",
+				],
 			},
 			{
 				category: "Data · Dashboard",
 				description:
-					"Combines three public APIs to give every country a strategic score, with charts and PDF export. End-to-end typed Hono API, all running with Docker.",
+					"Combines three public APIs to give every country a strategic score, with charts and PDF export.",
+				highlights: [
+					"End-to-end typed Hono API with Kysely and Zod",
+					"Aggregation and normalisation of heterogeneous sources",
+					"The whole app starts with one Docker command",
+				],
 			},
 		],
 	},
@@ -267,6 +302,8 @@ export const en: Dictionary = {
 		sent: "Thanks, your message has been sent. I'll get back to you soon.",
 		error:
 			"Automatic sending is unavailable right now: your mail app opens with the message ready to send. Otherwise, email me at najidjibril@gmail.com.",
+		copy: "Copy email",
+		copied: "Email copied",
 		projectOptions: [
 			"VIE",
 			"Freelance assignment",

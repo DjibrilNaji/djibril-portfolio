@@ -7,25 +7,6 @@ const iconPaths = {
 			<path d="M8 7h9v9" />
 		</>
 	),
-	sparkle: (
-		<path d="M12 3v4M12 17v4M3 12h4M17 12h4M12 7c.6 2.7 2.3 4.4 5 5-2.7.6-4.4 2.3-5 5-.6-2.7-2.3-4.4-5-5 2.7-.6 4.4-2.3 5-5Z" />
-	),
-	calendar: (
-		<>
-			<rect x="3" y="5" width="18" height="16" rx="3" />
-			<path d="M8 3v4M16 3v4M3 10h18" />
-		</>
-	),
-	folder: (
-		<path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
-	),
-	users: (
-		<>
-			<circle cx="9" cy="8" r="3.5" />
-			<path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6" />
-			<path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14.2c2.1.7 3.5 2.8 3.5 5.8" />
-		</>
-	),
 	layout: (
 		<>
 			<rect x="3" y="4" width="18" height="16" rx="3" />
@@ -37,12 +18,6 @@ const iconPaths = {
 			<rect x="3" y="4" width="18" height="7" rx="2" />
 			<rect x="3" y="13" width="18" height="7" rx="2" />
 			<path d="M7 7.5h.01M7 16.5h.01" />
-		</>
-	),
-	smartphone: (
-		<>
-			<rect x="6" y="2.5" width="12" height="19" rx="3" />
-			<path d="M11 18h2" />
 		</>
 	),
 	shield: (
@@ -80,6 +55,19 @@ const iconPaths = {
 		</>
 	),
 	moon: <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />,
+	database: (
+		<>
+			<ellipse cx="12" cy="5.5" rx="8" ry="3" />
+			<path d="M4 5.5v13c0 1.7 3.6 3 8 3s8-1.3 8-3v-13M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
+		</>
+	),
+	copy: (
+		<>
+			<rect x="9" y="9" width="12" height="12" rx="2.5" />
+			<path d="M5 15H4.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5" />
+		</>
+	),
+	check: <path d="m5 12.5 4.5 4.5L19 7.5" />,
 	menu: <path d="M4 7h16M4 12h16M4 17h16" />,
 	close: <path d="M6 6l12 12M18 6 6 18" />,
 	chevronLeft: <path d="m15 6-6 6 6 6" />,

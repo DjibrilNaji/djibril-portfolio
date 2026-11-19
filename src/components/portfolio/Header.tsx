@@ -8,7 +8,7 @@ import { Icon, pillGlass } from "./ui";
 const sections = [
 	{ id: "top", key: "top" },
 	{ id: "a-propos", key: "about" },
-	{ id: "services", key: "services" },
+	{ id: "expertise", key: "expertise" },
 	{ id: "projets", key: "projects" },
 	{ id: "experience", key: "experience" },
 	{ id: "avis", key: "reviews" },

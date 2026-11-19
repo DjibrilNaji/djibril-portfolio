@@ -2,13 +2,8 @@ import { type Project, profile, projects } from "#/data/portfolio";
 import { useI18n } from "#/i18n";
 import { external, Icon, Panel, pillGlass, SectionHeading } from "./ui";
 
-const visuals = [
-	"from-[#e6ddff] to-[#f5f2ff] dark:from-[#2a1f5c] dark:to-[#15142a]",
-	"from-[#dff5f1] to-[#eef1ff] dark:from-[#0f3a36] dark:to-[#161a33]",
-	"from-[#dde6ff] to-[#f3f5ff] dark:from-[#1b2757] dark:to-[#14152a]",
-	"from-[#fde9d6] to-[#f3efff] dark:from-[#3d2414] dark:to-[#1d1733]",
-	"from-[#e3f3fb] to-[#f4f7ff] dark:from-[#123345] dark:to-[#14152a]",
-];
+// One flat tint per card header, cycling; the text colours keep 4.5:1 on each.
+const tints = ["bg-lilac", "bg-mint", "bg-sky", "bg-peach", "bg-violet-soft"];
 
 const spans: Record<Project["span"], string> = {
 	full: "md:col-span-2 lg:col-span-3",
@@ -44,40 +39,58 @@ export function Projects() {
 					return (
 						<article
 							key={project.name}
-							className={`glass-strong flex flex-col overflow-hidden rounded-3xl p-2 ${spans[project.span]}`}
+							className={`glass-strong group flex flex-col overflow-hidden rounded-3xl p-2 transition duration-300 hover:-translate-y-0.5 hover:shadow-[var(--glass-strong-shadow)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${spans[project.span]}`}
 						>
 							<div
-								className={`relative flex h-36 flex-col justify-end overflow-hidden rounded-[18px] bg-gradient-to-br p-5 ${visuals[i % visuals.length]}`}
-								aria-hidden="true"
+								className={`flex flex-col gap-3 rounded-[18px] px-5 py-4 ${tints[i % tints.length]}`}
 							>
-								<span className="text-gradient text-3xl font-extrabold tracking-tight">
-									{project.name}
+								<span className="text-xs font-semibold tracking-[0.08em] text-body uppercase">
+									{t.projects.architecture}
 								</span>
+								<ol className="m-0 flex list-none flex-wrap items-center gap-x-1.5 gap-y-2 p-0">
+									{project.layers.map((layer, j) => (
+										<li key={layer} className="flex items-center gap-1.5">
+											{j > 0 && (
+												<Icon
+													name="chevronRight"
+													size={14}
+													className="shrink-0 text-muted"
+												/>
+											)}
+											<span className="rounded-lg bg-white/80 px-2.5 py-1 text-xs font-semibold text-[#0f1222] shadow-sm dark:bg-black/30 dark:text-ink">
+												{layer}
+											</span>
+										</li>
+									))}
+								</ol>
 							</div>
 							<div className="flex flex-1 flex-col gap-4 px-4 pt-5 pb-4">
 								<div className="flex flex-col gap-1">
-									<h3 className="m-0 text-lg font-bold">{project.name}</h3>
+									<h3 className="m-0 text-xl font-bold tracking-tight">
+										{project.name}
+									</h3>
 									<span className="text-sm font-semibold text-violet">
 										{text.category}
 									</span>
 								</div>
-								<p className="m-0 flex-1 text-sm leading-relaxed text-body">
+								<p className="m-0 text-sm leading-relaxed text-body">
 									{text.description}
 								</p>
 								<ul
-									className="m-0 flex list-none flex-wrap gap-2 p-0"
-									aria-label="Stack"
+									className={`m-0 grid list-none gap-2 p-0 text-sm leading-relaxed ${project.span === "full" ? "lg:grid-cols-3 lg:gap-6" : ""}`}
 								>
-									{project.stack.map((tech) => (
-										<li
-											key={tech}
-											className="rounded-full bg-chip px-3 py-1 text-xs font-medium text-body ring-1 ring-line"
-										>
-											{tech}
+									{text.highlights.map((highlight) => (
+										<li key={highlight} className="flex gap-2.5">
+											<Icon
+												name="check"
+												size={16}
+												className="mt-0.5 shrink-0 text-violet"
+											/>
+											<span>{highlight}</span>
 										</li>
 									))}
 								</ul>
-								<div className="flex flex-wrap items-center gap-2 pt-1">
+								<div className="mt-auto flex flex-wrap items-center gap-2 pt-1">
 									{project.site && (
 										<a
 											href={project.site}

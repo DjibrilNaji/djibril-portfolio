@@ -11,7 +11,7 @@ export function Hero() {
 			className="glass relative scroll-mt-28 overflow-hidden rounded-[var(--radius-panel)] px-6 pt-10 pb-8 md:px-12 md:pt-16"
 		>
 			<div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,480px)]">
-				<div className="flex flex-col gap-6">
+				<div className="rise flex flex-col gap-6">
 					<Eyebrow>{t.hero.eyebrow}</Eyebrow>
 					<div className="flex flex-col gap-2">
 						<h1 className="m-0 text-5xl font-extrabold tracking-tight md:text-[64px] md:leading-[1.05]">
@@ -50,6 +50,7 @@ export function Hero() {
 												alt=""
 												width={28}
 												height={28}
+												loading="lazy"
 												className="size-7 rounded-md"
 											/>
 										) : (
@@ -95,16 +96,21 @@ function Portrait() {
 	const { t } = useI18n();
 
 	return (
-		<div className="relative mx-auto w-full max-w-[440px] pt-6 pr-6 pb-10 pl-8">
+		<div
+			className="rise relative mx-auto w-full max-w-[440px] pt-6 pr-6 pb-10 pl-2 sm:pl-8"
+			style={{ animationDelay: "120ms" }}
+		>
 			<div className="glass-strong relative aspect-[4/4.4] overflow-hidden rounded-[48px] p-2">
 				<div className="h-full w-full overflow-hidden rounded-[40px] bg-gradient-to-br from-[#e9e4ff] via-[#f4f2fb] to-[#dfe6ff] dark:from-[#241c4a] dark:via-[#15142a] dark:to-[#1a2250]">
-					{profile.photo ? (
-						<img
-							src={profile.photo}
-							alt={t.hero.portraitAlt}
-							className="h-full w-full object-cover"
-						/>
-					) : null}
+					<img
+						src={profile.photo}
+						alt={t.hero.portraitAlt}
+						width={720}
+						height={720}
+						fetchPriority="high"
+						decoding="async"
+						className="h-full w-full object-cover"
+					/>
 				</div>
 			</div>
 
@@ -122,10 +128,6 @@ function Portrait() {
 					<Icon name="graduation" size={20} />
 				</span>
 				<span className="text-base font-bold">{t.hero.promoTitle}</span>
-			</div>
-
-			<div className="glass-float absolute top-1/2 left-0 flex size-16 -translate-y-1/2 items-center justify-center rounded-full text-violet">
-				<Icon name="sparkle" size={26} />
 			</div>
 		</div>
 	);
