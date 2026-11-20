@@ -47,7 +47,7 @@ export const fr: Dictionary = {
 			{ label: "Basé à", value: "Paris, France" },
 			{ label: "Disponible", value: "VIE · mobilité internationale" },
 			{ label: "Langues", value: "Français natif · anglais professionnel" },
-			{ label: "Mode de travail", value: "100 % remote ou sur site" },
+			{ label: "Mode de travail", value: "100 % remote ou hybride" },
 		],
 	},
 	expertise: {

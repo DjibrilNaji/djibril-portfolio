@@ -47,7 +47,7 @@ export const en: Dictionary = {
 			{ label: "Based in", value: "Paris, France" },
 			{ label: "Available for", value: "VIE · relocation worldwide" },
 			{ label: "Languages", value: "French (native) · professional English" },
-			{ label: "Work setup", value: "Fully remote or on-site" },
+			{ label: "Work setup", value: "Fully remote or hybrid" },
 		],
 	},
 	expertise: {
