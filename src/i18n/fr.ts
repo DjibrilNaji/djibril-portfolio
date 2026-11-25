@@ -124,6 +124,28 @@ export const fr: Dictionary = {
 				],
 			},
 			{
+				category: "Automatisation · IA",
+				description:
+					"Mon outil de recherche de VIE. Chaque matin, il récupère les nouvelles offres de Business France et leur donne une note. Pour une offre retenue, un bouton lance une routine Claude Code qui prépare un CV et une lettre adaptés.",
+				highlights: [
+					"Import quotidien planifié et note par mots-clés, sans coût d'IA",
+					"CV et lettre générés en PDF et en Word, vérifiés pour tenir sur une page",
+					"API protégée par jeton pour les routines, rappel par email avant la clôture d'une offre",
+				],
+				note: "Code privé · contient mes données personnelles",
+			},
+			{
+				category: "Automatisation · IA",
+				description:
+					"Le projet jumeau de VIE Radar, pour les missions de Service Civique à l'étranger et en outre-mer, pensé pour partir à deux.",
+				highlights: [
+					"Note selon la destination, les places pour deux, la date de début et la durée",
+					"Pays ou territoire retrouvé à partir des coordonnées de chaque mission",
+					"Un dossier, CV et lettre, généré pour chaque personne",
+				],
+				note: "Code privé · contient mes données personnelles",
+			},
+			{
 				category: "E-commerce · Projet d'équipe",
 				description:
 					"Site e-commerce et back-office pour une marque de mobilier. Projet de Bachelor en équipe de 5.",

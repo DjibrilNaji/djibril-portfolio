@@ -112,6 +112,14 @@ export const projects: Project[] = [
 		code: "https://github.com/DjibrilNaji/lootopia",
 	},
 	{
+		name: "VIE Radar",
+		layers: ["Vercel Cron", "Next.js 16", "Neon Postgres", "Claude Code"],
+	},
+	{
+		name: "Civique Radar",
+		layers: ["Vercel Cron", "Next.js 16", "Neon Postgres", "Claude Code"],
+	},
+	{
 		name: "ÀIRNEIS",
 		layers: ["Next.js", "Objection · Stripe", "PostgreSQL"],
 		code: "https://github.com/DjibrilNaji/airneis-projet-sdv-b3",

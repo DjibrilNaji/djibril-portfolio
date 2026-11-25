@@ -124,6 +124,28 @@ export const en: Dictionary = {
 				],
 			},
 			{
+				category: "Automation · AI",
+				description:
+					"My VIE job-search tool. Every morning it pulls the new Business France offers and scores them. For an offer I keep, one button starts a Claude Code routine that writes a tailored CV and cover letter.",
+				highlights: [
+					"Scheduled daily import and keyword scoring, with no AI cost",
+					"CV and cover letter generated as PDF and Word, checked to fit on one page",
+					"Token-protected API for the routines, email reminder before an offer closes",
+				],
+				note: "Private code · contains my personal data",
+			},
+			{
+				category: "Automation · AI",
+				description:
+					"The twin of VIE Radar, for Service Civique missions abroad and in French overseas territories, built for applying as a pair.",
+				highlights: [
+					"Scored on destination, places for two, start date and length",
+					"Country or territory found from each mission's coordinates",
+					"One application pack, CV and letter, generated per person",
+				],
+				note: "Private code · contains my personal data",
+			},
+			{
 				category: "E-commerce · Team project",
 				description:
 					"E-commerce site and back office for a furniture brand. Bachelor team project, 5 developers.",

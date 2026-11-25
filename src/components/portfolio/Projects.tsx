@@ -105,7 +105,7 @@ export function Projects() {
 									)}
 									{!project.site && !project.code && (
 										<span className="inline-flex min-h-10 items-center text-sm font-medium text-muted">
-											{t.projects.privateNote}
+											{text.note ?? t.projects.privateNote}
 										</span>
 									)}
 								</div>

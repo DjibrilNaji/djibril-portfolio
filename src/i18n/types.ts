@@ -67,7 +67,13 @@ export type Dictionary = {
 		site: string;
 		privateNote: string;
 		architecture: string;
-		items: { category: string; description: string; highlights: string[] }[];
+		items: {
+			category: string;
+			description: string;
+			highlights: string[];
+			/** Replaces privateNote on cards without links. */
+			note?: string;
+		}[];
 	};
 	experience: {
 		eyebrow: string;
