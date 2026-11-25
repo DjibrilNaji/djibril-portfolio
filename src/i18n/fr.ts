@@ -259,23 +259,13 @@ export const fr: Dictionary = {
 		title: "Mon parcours académique",
 		topOfClass: "Major de promotion",
 		items: [
-			{ title: "Bac S", detail: "Scientifique · Lycée Jules Ferry" },
 			{
-				title: "BTS SIO",
-				detail: "Développement logiciel (bac+2) · Lycée de l'Hautil",
+				title: "Master Développement Full Stack",
+				detail: "Sup de Vinci, Paris",
 			},
-			{
-				title: "Bachelor",
-				detail: "Major de promotion · Sup de Vinci, Paris",
-			},
-			{
-				title: "Master 1",
-				detail: "Développement Full Stack · Sup de Vinci",
-			},
-			{
-				title: "Master",
-				detail: "Développement Full Stack · Sup de Vinci, Paris",
-			},
+			{ title: "Bachelor Développement", detail: "Sup de Vinci, Paris" },
+			{ title: "BTS SIO", detail: "Lycée de l'Hautil" },
+			{ title: "Bac S", detail: "Lycée Jules Ferry" },
 		],
 	},
 	testimonials: {

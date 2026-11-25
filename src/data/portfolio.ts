@@ -139,11 +139,10 @@ export const testimonialAuthors = [
 	"Amin Houssni",
 ];
 
-// Steps of the academic path; `topOfClass` marks the "major de promotion" badge.
+// Academic path, most recent first; `topOfClass` shows the "major de promotion" badge.
 export const educationSteps = [
-	{ step: "01", topOfClass: false },
-	{ step: "02", topOfClass: true },
-	{ step: "03", topOfClass: true },
-	{ step: "04", topOfClass: false },
-	{ step: "05", topOfClass: false },
+	{ topOfClass: false },
+	{ topOfClass: true },
+	{ topOfClass: true },
+	{ topOfClass: false },
 ];

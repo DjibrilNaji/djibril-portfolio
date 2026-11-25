@@ -260,22 +260,15 @@ export const en: Dictionary = {
 		topOfClass: "Top of class",
 		items: [
 			{
-				title: "French Baccalaureate",
-				detail: "Science · Lycée Jules Ferry",
+				title: "Master's degree, Full Stack Development",
+				detail: "Sup de Vinci, Paris",
 			},
 			{
-				title: "BTS SIO",
-				detail: "2-year degree in software development · Lycée de l'Hautil",
+				title: "Bachelor's degree, Development",
+				detail: "Sup de Vinci, Paris",
 			},
-			{
-				title: "Bachelor's degree",
-				detail: "Ranked first in class · Sup de Vinci, Paris",
-			},
-			{ title: "Master 1", detail: "Full Stack Development · Sup de Vinci" },
-			{
-				title: "Master's degree",
-				detail: "Full Stack Development · Sup de Vinci, Paris",
-			},
+			{ title: "BTS SIO, software development", detail: "Lycée de l'Hautil" },
+			{ title: "French Baccalaureate, Science", detail: "Lycée Jules Ferry" },
 		],
 	},
 	testimonials: {

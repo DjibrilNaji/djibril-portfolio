@@ -103,30 +103,25 @@ export function Experience() {
 				<SectionHeading eyebrow={t.education.eyebrow}>
 					{t.education.title}
 				</SectionHeading>
-				<ol className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2 lg:grid-cols-5">
+				<ol className="glass-strong m-0 flex list-none flex-col rounded-3xl px-5 py-1 sm:px-6">
 					{educationSteps.map((item, i) => (
 						<li
-							key={item.step}
-							className="glass-strong relative flex flex-col gap-2 rounded-2xl p-5"
+							key={t.education.items[i].title}
+							className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-line py-4 last:border-b-0"
 						>
-							<div className="flex items-center justify-between">
-								<span className="flex size-9 items-center justify-center rounded-lg bg-violet-soft text-violet">
-									<Icon name="graduation" size={18} />
-								</span>
-								<span
-									className={`text-2xl font-light ${i === educationSteps.length - 1 ? "text-violet" : "text-faint"}`}
-								>
-									{item.step}
-								</span>
+							<span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-violet-soft text-violet">
+								<Icon name="graduation" size={18} />
+							</span>
+							<div className="flex min-w-0 flex-1 flex-col">
+								<h3 className="m-0 text-base font-bold">
+									{t.education.items[i].title}
+								</h3>
+								<p className="m-0 text-sm text-muted">
+									{t.education.items[i].detail}
+								</p>
 							</div>
-							<h3 className="m-0 text-base font-bold">
-								{t.education.items[i].title}
-							</h3>
-							<p className="m-0 text-sm leading-relaxed text-muted">
-								{t.education.items[i].detail}
-							</p>
 							{item.topOfClass && (
-								<span className="self-start rounded-full bg-ink px-2.5 py-1 text-xs font-semibold text-on-ink">
+								<span className="ml-14 rounded-full bg-ink px-3 py-1 text-xs font-semibold text-on-ink sm:ml-0">
 									{t.education.topOfClass}
 								</span>
 							)}
