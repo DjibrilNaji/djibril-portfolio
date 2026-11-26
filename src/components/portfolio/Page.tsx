@@ -1,6 +1,7 @@
 import { profile, siteUrl } from "#/data/portfolio";
 import { dictionaries, I18nProvider, type Lang, langPaths } from "#/i18n";
 import { About } from "./About";
+import { CursorGlow, StackMarquee } from "./Ambient";
 import { Contact, Footer } from "./Contact";
 import { Experience } from "./Experience";
 import { Expertise } from "./Expertise";
@@ -21,6 +22,7 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
 			>
 				{t.skipLink}
 			</a>
+			<CursorGlow />
 			<div className="pb-4">
 				<Header />
 				<main
@@ -29,6 +31,7 @@ export function PortfolioPage({ lang }: { lang: Lang }) {
 					className={`${container} mt-8 flex flex-col gap-4 outline-none md:mt-10`}
 				>
 					<Hero />
+					<StackMarquee />
 					<About />
 					<Expertise />
 					<Projects />
