@@ -226,6 +226,190 @@ body::before {
   animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* Hero name: letters spring up one by one */
+@keyframes letter {
+  from {
+    opacity: 0.01;
+    transform: translateY(0.55em) rotate(6deg);
+    filter: blur(6px);
+  }
+}
+
+.letter {
+  display: inline-block;
+  animation: letter 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i) * 35ms + 100ms);
+}
+
+/* Slow sheen across the gradient title */
+@keyframes sheen {
+  to {
+    background-position: 200% 0;
+  }
+}
+
+.text-gradient-live {
+  background-size: 200% 100%;
+  animation: sheen 6s linear infinite;
+}
+
+/* Static glow under the WebGL orb: what everyone sees before it starts, or instead of it */
+.orb-fallback {
+  background:
+    radial-gradient(circle at 30% 30%, rgb(244 168 230 / 0.55), transparent 45%),
+    radial-gradient(circle at 70% 65%, rgb(102 153 255 / 0.5), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgb(139 102 250 / 0.55), transparent 62%);
+  filter: blur(28px);
+}
+
+/* Cards: light follows the cursor, and project cards lean toward it */
+.spot {
+  position: relative;
+}
+
+.spot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(139 92 246 / 0.14), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.spot:hover::after {
+  opacity: 1;
+}
+
+.tilt {
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
+}
+
+/* Architecture strip: on hover a request travels front to back through the layers */
+@keyframes hop {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+    transform: none;
+  }
+  40% {
+    box-shadow: 0 0 0 3px var(--violet), 0 8px 24px -6px var(--violet);
+    transform: translateY(-2px);
+  }
+}
+
+.group:hover .layer {
+  animation: hop 0.9s ease both;
+  animation-delay: calc(var(--i) * 140ms);
+}
+
+/* Endless stack band */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.marquee-track {
+  animation: marquee 45s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Reading progress under the navbar */
+.scroll-progress {
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+/* Ambient light that trails the mouse */
+.cursor-glow-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cursor-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+  height: 640px;
+  margin: -320px 0 0 -320px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, var(--glow-1), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+dialog.palette::backdrop {
+  background: rgb(10 10 19 / 0.45);
+  backdrop-filter: blur(6px);
+}
+
+@keyframes palette-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+}
+
+dialog.palette[open] {
+  animation: palette-in 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Scroll-driven motion: pure CSS, only where the browser supports it */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(48px) scale(0.97);
+      }
+    }
+
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+
+    @keyframes progress {
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    .scroll-progress {
+      animation: progress linear both;
+      animation-timeline: scroll(root);
+    }
+
+    /* Background glows drift slower than the page: depth */
+    @keyframes drift {
+      to {
+        transform: translateY(-10vh) scale(1.25);
+      }
+    }
+
+    body::before {
+      animation: drift linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -235,7 +419,38 @@ body::before {
     transition: none;
   }
 
-  .rise {
+  .rise,
+  .letter,
+  .text-gradient-live,
+  .group:hover .layer {
     animation: none;
   }
+
+  .tilt {
+    transform: none;
+  }
+
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+  }
+
+  .marquee-track > [aria-hidden] {
+    display: none;
+  }
+
+  .marquee {
+    mask-image: none;
+  }
+
+  .cursor-glow-layer {
+    display: none;
+  }
+}
+
+/* The palette field sits in a bordered row already; no second focus ring */
+dialog.palette input:focus-visible {
+  outline: none;
 }

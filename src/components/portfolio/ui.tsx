@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { PointerEvent, ReactNode } from "react";
 
 const iconPaths = {
 	arrowUpRight: (
@@ -68,6 +68,12 @@ const iconPaths = {
 		</>
 	),
 	check: <path d="m5 12.5 4.5 4.5L19 7.5" />,
+	search: (
+		<>
+			<circle cx="11" cy="11" r="7" />
+			<path d="m20 20-3.5-3.5" />
+		</>
+	),
 	menu: <path d="M4 7h16M4 12h16M4 17h16" />,
 	close: <path d="M6 6l12 12M18 6 6 18" />,
 	chevronLeft: <path d="m15 6-6 6 6 6" />,
@@ -143,7 +149,7 @@ export function Panel({
 	return (
 		<section
 			id={id}
-			className={`glass scroll-mt-28 rounded-[var(--radius-panel)] p-6 md:p-10 ${className}`}
+			className={`glass reveal scroll-mt-28 rounded-[var(--radius-panel)] p-6 md:p-10 ${className}`}
 		>
 			{children}
 		</section>
@@ -184,3 +190,22 @@ export const pillButton =
 	"inline-flex min-h-11 items-center gap-2.5 rounded-full px-5 text-sm font-semibold transition";
 export const pillDark = `${pillButton} bg-ink text-on-ink shadow-[var(--button-shadow)] hover:bg-ink-hover`;
 export const pillGlass = `${pillButton} glass-strong text-ink hover:bg-hover-surface`;
+
+// Pointer-follow light and tilt for cards (`.spot` / `.tilt` in styles.css read these).
+export const cardPointer = {
+	onPointerMove(event: PointerEvent<HTMLElement>) {
+		if (event.pointerType !== "mouse") return;
+		const el = event.currentTarget;
+		const r = el.getBoundingClientRect();
+		const x = (event.clientX - r.left) / r.width;
+		const y = (event.clientY - r.top) / r.height;
+		el.style.setProperty("--mx", `${x * 100}%`);
+		el.style.setProperty("--my", `${y * 100}%`);
+		el.style.setProperty("--rx", `${(0.5 - y) * 5}deg`);
+		el.style.setProperty("--ry", `${(x - 0.5) * 6}deg`);
+	},
+	onPointerLeave(event: PointerEvent<HTMLElement>) {
+		event.currentTarget.style.removeProperty("--rx");
+		event.currentTarget.style.removeProperty("--ry");
+	},
+};

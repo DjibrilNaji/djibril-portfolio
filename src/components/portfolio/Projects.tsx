@@ -1,6 +1,13 @@
 import { profile, projects } from "#/data/portfolio";
 import { useI18n } from "#/i18n";
-import { external, Icon, Panel, pillGlass, SectionHeading } from "./ui";
+import {
+	cardPointer,
+	external,
+	Icon,
+	Panel,
+	pillGlass,
+	SectionHeading,
+} from "./ui";
 
 // One flat tint per card header, cycling; the text colours keep 4.5:1 on each.
 const tints = ["bg-lilac", "bg-mint", "bg-sky", "bg-peach", "bg-violet-soft"];
@@ -33,7 +40,8 @@ export function Projects() {
 					return (
 						<article
 							key={project.name}
-							className={`glass-strong group flex flex-col overflow-hidden rounded-3xl p-2 transition duration-300 hover:-translate-y-0.5 hover:shadow-[var(--glass-strong-shadow)] motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${project.featured ? "md:col-span-2" : ""}`}
+							{...cardPointer}
+							className={`glass-strong spot tilt group flex flex-col overflow-hidden rounded-3xl p-2 ${project.featured ? "md:col-span-2" : ""}`}
 						>
 							<div
 								className={`flex flex-col gap-3 rounded-[18px] px-5 py-4 ${tints[i % tints.length]}`}
@@ -51,7 +59,7 @@ export function Projects() {
 													className="shrink-0 text-muted"
 												/>
 											)}
-											<span className="rounded-lg bg-white/80 px-2.5 py-1 text-xs font-semibold text-[#0f1222] shadow-sm dark:bg-black/30 dark:text-ink">
+											<span className="layer rounded-lg bg-white/80 px-2.5 py-1 text-xs font-semibold text-[#0f1222] shadow-sm dark:bg-black/30 dark:text-ink">
 												{layer}
 											</span>
 										</li>

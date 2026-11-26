@@ -1,6 +1,6 @@
 import { expertise, workingTools } from "#/data/portfolio";
 import { useI18n } from "#/i18n";
-import { Icon, Panel, SectionHeading, tones } from "./ui";
+import { cardPointer, Icon, Panel, SectionHeading, tones } from "./ui";
 
 export function Expertise() {
 	const { t } = useI18n();
@@ -20,7 +20,8 @@ export function Expertise() {
 					return (
 						<article
 							key={domain.icon}
-							className="glass-strong flex flex-col gap-4 rounded-3xl p-6"
+							{...cardPointer}
+							className="glass-strong spot flex flex-col gap-4 rounded-3xl p-6"
 						>
 							<div className="flex items-center gap-3">
 								<span
