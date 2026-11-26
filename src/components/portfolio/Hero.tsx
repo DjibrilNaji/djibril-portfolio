@@ -1,5 +1,6 @@
 import { profile, trustedBy } from "#/data/portfolio";
 import { useI18n } from "#/i18n";
+import { LiquidOrb } from "./LiquidOrb";
 import { Eyebrow, external, Icon, pillDark, pillGlass } from "./ui";
 
 export function Hero() {
@@ -14,10 +15,13 @@ export function Hero() {
 				<div className="rise flex flex-col gap-6">
 					<Eyebrow>{t.hero.eyebrow}</Eyebrow>
 					<div className="flex flex-col gap-2">
-						<h1 className="m-0 text-5xl font-extrabold tracking-tight md:text-[64px] md:leading-[1.05]">
-							{profile.firstName} {profile.lastName}
+						<h1
+							aria-label={`${profile.firstName} ${profile.lastName}`}
+							className="m-0 text-5xl font-extrabold tracking-tight md:text-[64px] md:leading-[1.05]"
+						>
+							<SplitLetters text={`${profile.firstName} ${profile.lastName}`} />
 						</h1>
-						<p className="text-gradient m-0 text-3xl font-bold tracking-tight md:text-[34px] lg:text-[30px] xl:text-[38px]">
+						<p className="text-gradient text-gradient-live m-0 text-3xl font-bold tracking-tight md:text-[34px] lg:text-[30px] xl:text-[38px]">
 							{profile.title}
 						</p>
 					</div>
@@ -92,6 +96,24 @@ export function Hero() {
 	);
 }
 
+// Each letter animates on its own; screen readers get the h1's aria-label instead.
+function SplitLetters({ text }: { text: string }) {
+	return (
+		<span aria-hidden="true">
+			{[...text].map((char, i) => (
+				<span
+					// biome-ignore lint/suspicious/noArrayIndexKey: static text, letters repeat
+					key={i}
+					className="letter"
+					style={{ "--i": i } as React.CSSProperties}
+				>
+					{char === " " ? "\u00a0" : char}
+				</span>
+			))}
+		</span>
+	);
+}
+
 function Portrait() {
 	const { t } = useI18n();
 
@@ -100,6 +122,10 @@ function Portrait() {
 			className="rise relative mx-auto w-full max-w-[440px] pt-6 pr-6 pb-10 pl-2 sm:pl-8"
 			style={{ animationDelay: "120ms" }}
 		>
+			<div
+				aria-hidden="true"
+				className="orb-fallback pointer-events-none absolute inset-[4%] rounded-full"
+			/>
 			<div className="glass-strong relative aspect-[4/4.4] overflow-hidden rounded-[48px] p-2">
 				<div className="h-full w-full overflow-hidden rounded-[40px] bg-gradient-to-br from-[#e9e4ff] via-[#f4f2fb] to-[#dfe6ff] dark:from-[#241c4a] dark:via-[#15142a] dark:to-[#1a2250]">
 					<img
@@ -115,6 +141,8 @@ function Portrait() {
 					/>
 				</div>
 			</div>
+
+			<LiquidOrb />
 
 			<div className="glass-float absolute top-0 right-0 flex flex-col items-center rounded-2xl px-5 py-4 text-center">
 				<span className="text-4xl font-extrabold tracking-tight">~4</span>
