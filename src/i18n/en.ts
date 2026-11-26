@@ -25,6 +25,17 @@ export const en: Dictionary = {
 		toDark: "Switch to dark theme",
 	},
 	language: { label: "Language" },
+	palette: {
+		open: "Quick navigation",
+		placeholder: "Jump to a section, switch theme…",
+		goTo: "Go to",
+		theme: "Switch theme",
+		language: "Lire en français",
+		copyEmail: "Copy my email address",
+		empty: "No results",
+		hint: "↑ ↓ to choose · Enter to run · Esc to close",
+	},
+	marquee: "Technologies and tools I use",
 	hero: {
 		eyebrow: "Hello, my name is",
 		intro:

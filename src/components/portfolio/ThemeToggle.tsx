@@ -13,6 +13,20 @@ function applyTheme(theme: Theme) {
 	document.documentElement.classList.toggle("dark", theme === "dark");
 }
 
+const THEME_EVENT = "themechange";
+
+// Flips and remembers the theme; any ThemeToggle on the page follows along.
+export function toggleTheme() {
+	const next: Theme = document.documentElement.classList.contains("dark")
+		? "light"
+		: "dark";
+	applyTheme(next);
+	try {
+		localStorage.setItem(THEME_STORAGE_KEY, next);
+	} catch {}
+	window.dispatchEvent(new Event(THEME_EVENT));
+}
+
 export function ThemeToggle() {
 	const { t } = useI18n();
 	const [theme, setTheme] = useState<Theme | null>(null);
@@ -32,25 +46,24 @@ export function ThemeToggle() {
 			applyTheme(next);
 			setTheme(next);
 		};
+		const sync = () =>
+			setTheme(
+				document.documentElement.classList.contains("dark") ? "dark" : "light",
+			);
 		media.addEventListener("change", onChange);
-		return () => media.removeEventListener("change", onChange);
+		window.addEventListener(THEME_EVENT, sync);
+		return () => {
+			media.removeEventListener("change", onChange);
+			window.removeEventListener(THEME_EVENT, sync);
+		};
 	}, []);
-
-	const toggle = () => {
-		const next = theme === "dark" ? "light" : "dark";
-		applyTheme(next);
-		setTheme(next);
-		try {
-			localStorage.setItem(THEME_STORAGE_KEY, next);
-		} catch {}
-	};
 
 	const isDark = theme === "dark";
 
 	return (
 		<button
 			type="button"
-			onClick={toggle}
+			onClick={toggleTheme}
 			aria-label={isDark ? t.theme.toLight : t.theme.toDark}
 			aria-pressed={isDark}
 			className="glass-strong inline-flex size-11 shrink-0 items-center justify-center rounded-full text-ink transition hover:bg-hover-surface"

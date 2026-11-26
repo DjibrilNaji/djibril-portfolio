@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { profile } from "#/data/portfolio";
 import { useI18n } from "#/i18n";
+import { CommandPalette } from "./CommandPalette";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { ThemeToggle } from "./ThemeToggle";
 import { Icon, pillGlass } from "./ui";
 
-const sections = [
+export const sections = [
 	{ id: "top", key: "top" },
 	{ id: "a-propos", key: "about" },
 	{ id: "expertise", key: "expertise" },
@@ -60,6 +61,13 @@ export function Header() {
 				/>
 			)}
 			<div className="glass-nav relative rounded-[22px]">
+				{/* Reading progress, clipped to the bar's rounded corners */}
+				<span
+					aria-hidden="true"
+					className="pointer-events-none absolute inset-0 overflow-hidden rounded-[22px]"
+				>
+					<span className="scroll-progress absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-violet via-[#8b5cf6] to-sky-ink" />
+				</span>
 				<div className="flex items-center justify-between gap-3 py-2.5 pr-2.5 pl-3 lg:gap-6">
 					<a href="#top" className="flex min-h-11 shrink-0 items-center gap-3">
 						<span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-ink text-sm font-extrabold text-on-ink">
@@ -92,6 +100,7 @@ export function Header() {
 						</ul>
 					</nav>
 					<div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
+						<CommandPalette />
 						<LanguageSwitch section={active} />
 						<ThemeToggle />
 						<div className="hidden lg:block">

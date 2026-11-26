@@ -33,6 +33,17 @@ export type Dictionary = {
 	};
 	theme: { toLight: string; toDark: string };
 	language: { label: string };
+	palette: {
+		open: string;
+		placeholder: string;
+		goTo: string;
+		theme: string;
+		language: string;
+		copyEmail: string;
+		empty: string;
+		hint: string;
+	};
+	marquee: string;
 	hero: {
 		eyebrow: string;
 		intro: string;

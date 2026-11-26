@@ -25,6 +25,17 @@ export const fr: Dictionary = {
 		toDark: "Activer le thème sombre",
 	},
 	language: { label: "Langue" },
+	palette: {
+		open: "Navigation rapide",
+		placeholder: "Aller à une section, changer de thème…",
+		goTo: "Aller à",
+		theme: "Changer de thème",
+		language: "Read in English",
+		copyEmail: "Copier mon adresse email",
+		empty: "Aucun résultat",
+		hint: "↑ ↓ pour choisir · Entrée pour valider · Échap pour fermer",
+	},
+	marquee: "Technologies et outils que j'utilise",
 	hero: {
 		eyebrow: "Bonjour, je m'appelle",
 		intro:
